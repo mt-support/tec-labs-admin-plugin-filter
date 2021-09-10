@@ -39,7 +39,7 @@ By default, all of these variables will be replaced by the create method from th
 * `admin-plugin-filter` - Plugin Human-readable name, e.g. "Sample Extension"
 * `Adminpluginfilter` - Which namespace we will use for the plugin. Usually the plugin name or the slug in uppercase without spaces, e.g. "SampleExtension"
 * `admin-plugin-filter` - Uses using dashes normally, e.g. "sample-extension"
-* `__TRIBE_DOMAIN__` - Translation domain normally with "tribe-" prefix, e.g. "tec-labs-sample-extension"
+* `tec-labs-admin-plugin-filter` - Translation domain normally with "tribe-" prefix, e.g. "tec-labs-sample-extension"
 * `admin_plugin_filter` - Uses underscores, so it's safe for variables, e.g. "sample_extension"
 * `__TRIBE_SLUG_CLEAN_ALLCAPS__` - All-caps of clean slug, e.g. "SAMPLE_EXTENSION"
 * `` - The URL of the extension page, by default empty. Usually "https://theeventscalendar.com/extensions/sample-extension/"

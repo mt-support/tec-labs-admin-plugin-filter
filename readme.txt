@@ -37,6 +37,9 @@ We're always interested in your feedback and our [Help Desk](https://support.the
 
 == Changelog ==
 
-= [1.0.0] YYYY-MM-DD =
+= [1.0.0] 2021-09-10 =
+
+* Feature - Add a link to the actions at the top of the plugin admin page to filter the plugin list by TEC plugins.
+* Feature - Filter `all_plugins` to only list TEC plugins when the `plugin_author` query var is set and is set to 'tec'.
 
 * Initial release

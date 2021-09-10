@@ -33,6 +33,19 @@ use Tribe__Main as Common;
 class Hooks extends \tad_DI52_ServiceProvider {
 
 	/**
+	 * List of author to filter by.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array
+	 */
+	private $authors = [
+		'The Events Calendar',
+		'The Events Calendar Team', // Why?
+		'Modern Tribe, Inc.', // Old
+	];
+
+	/**
 	 * Binds and sets up implementations.
 	 *
 	 * @since 1.0.0
@@ -60,7 +73,10 @@ class Hooks extends \tad_DI52_ServiceProvider {
 	 * @since 1.0.0
 	 */
 	protected function add_filters() {
-
+		// Add filter link to top of page.
+		add_filter( 'views_plugins', [ $this, 'filter_views_plugins_by_tec' ] );
+		// Filter plugins by TEC authors.
+		add_filter( 'all_plugins', [ $this, 'filter_all_plugins_by_tec' ] );
 	}
 
 	/**
@@ -70,9 +86,95 @@ class Hooks extends \tad_DI52_ServiceProvider {
 	 */
 	public function load_text_domains() {
 		$mopath = tribe( Plugin::class )->plugin_dir . 'lang/';
-		$domain = '__TRIBE_DOMAIN__';
+		$domain = 'tec-labs-admin-plugin-filter';
 
 		// This will load `wp-content/languages/plugins` files first.
 		Common::instance()->load_text_domain( $domain, $mopath );
+	}
+
+	/**
+	 * Adds a link to the plugin admin page to filter plugins by author (TEC).
+	 *
+	 * @param array $views The array of view links.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array $views The array of view links with the TEC link added.
+	 */
+	public function filter_views_plugins_by_tec( $views ) {
+		$count   = esc_html( $this->count_tec_plugins() );
+		$replace = 'class="current" aria-current="page"';
+		$tec     = esc_html_x( 'TEC', 'Acronym for The Events Calendar, shown in the link.', 'tec-labs-admin-plugin-filter' );
+
+
+		if ( 'tec' !== strtolower( tribe_get_request_var( 'plugin_author', '' ) ) ) {
+			$replace = '';
+		} else {
+			foreach ( $views as $index => $link ) {
+				if ( false !== stripos( $link, $replace ) ) {
+					$views[ $index ] = str_replace( $replace, '', $link );
+				}
+			}
+		}
+
+		$views['TEC'] = "<a {$replace} href='plugins.php?plugin_author=tec'>{$tec} <span class='count'>({$count})</span></a>";
+
+		return $views;
+	}
+
+	/**
+	 * Counts all the installed plugins authored by TEC.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return int
+	 */
+	public function count_tec_plugins() {
+		$plugins = get_plugins();
+		$count   = 0;
+
+		foreach ( $plugins as $file => $data ) {
+			if ( $this->is_tec_plugin( $data ) ) {
+				$count++;
+			}
+		}
+
+		return $count;
+	}
+
+	/**
+	 * Filters the "all plugins" list to only those authored by TEC.
+	 *
+	 * @param array $plugins The list of plugins.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array $plugins The filtered plugins list.
+	 */
+	public function filter_all_plugins_by_tec( $plugins ) {
+		if ( 'tec' !== strtolower( tribe_get_request_var( 'plugin_author', '' ) ) ) {
+			return $plugins;
+		}
+
+		foreach ( $plugins as $index => $data ) {
+			if ( ! $this->is_tec_plugin( $data ) ) {
+				unset( $plugins[ $index ] );
+			}
+		}
+
+		return $plugins;
+	}
+
+	/**
+	 * Determines if a plugin is authored by TEC.
+	 *
+	 * @param array $data The plugin data. See get_plugins().
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return boolean
+	 */
+	public function is_tec_plugin( $data ) {
+		return in_array( $data['Author'], $this->authors ) || in_array( $data['AuthorName'], $this->authors );
 	}
 }

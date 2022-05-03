@@ -37,6 +37,10 @@ We're always interested in your feedback and our [Help Desk](https://support.the
 
 == Changelog ==
 
+= [1.1.0] TBD =
+
+* Feature - Add a separate section for TEC extensions.
+
 = [1.0.0] 2021-09-10 =
 
 * Feature - Add a link to the actions at the top of the plugin admin page to filter the plugin list by TEC plugins.

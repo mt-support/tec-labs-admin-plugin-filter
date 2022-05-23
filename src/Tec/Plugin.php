@@ -4,17 +4,17 @@
  *
  * @since 1.0.0
  *
- * @package Tribe\Extensions\Adminpluginfilter
+ * @package TEC\Labs\Adminpluginfilter
  */
 
-namespace Tribe\Extensions\Adminpluginfilter;
+namespace TEC\Labs\Adminpluginfilter;
 
 /**
  * Class Plugin
  *
  * @since 1.0.0
  *
- * @package Tribe\Extensions\Adminpluginfilter
+ * @package TEC\Labs\Adminpluginfilter
  */
 class Plugin extends \tad_DI52_ServiceProvider {
 	/**
@@ -24,7 +24,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '1.1.0';
 
 	/**
 	 * Stores the base slug for the plugin.
@@ -42,7 +42,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * @var string
 	 */
-	const FILE = TRIBE_EXTENSION_ADMIN_PLUGIN_FILTER_FILE;
+	const FILE = TEC_LABS_EXTENSION_ADMIN_PLUGIN_FILTER_FILE;
 
 	/**
 	 * @since 1.0.0

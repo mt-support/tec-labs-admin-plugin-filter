@@ -4,22 +4,22 @@
  *
  * To remove a filter:
  * ```php
- *  remove_filter( 'some_filter', [ tribe( Tribe\Extensions\Adminpluginfilter\Hooks::class ), 'some_filtering_method' ] );
+ *  remove_filter( 'some_filter', [ tribe( TEC\Labs\Adminpluginfilter\Hooks::class ), 'some_filtering_method' ] );
  *  remove_filter( 'some_filter', [ tribe( 'extension.admin_plugin_filter.hooks' ), 'some_filtering_method' ] );
  * ```
  *
  * To remove an action:
  * ```php
- *  remove_action( 'some_action', [ tribe( Tribe\Extensions\Adminpluginfilter\Hooks::class ), 'some_method' ] );
+ *  remove_action( 'some_action', [ tribe( TEC\Labs\Adminpluginfilter\Hooks::class ), 'some_method' ] );
  *  remove_action( 'some_action', [ tribe( 'extension.admin_plugin_filter.hooks' ), 'some_method' ] );
  * ```
  *
  * @since 1.0.0
  *
- * @package Tribe\Extensions\Adminpluginfilter;
+ * @package TEC\Labs\Adminpluginfilter;
  */
 
-namespace Tribe\Extensions\Adminpluginfilter;
+namespace TEC\Labs\Adminpluginfilter;
 
 use Tribe__Main as Common;
 
@@ -28,7 +28,7 @@ use Tribe__Main as Common;
  *
  * @since 1.0.0
  *
- * @package Tribe\Extensions\Adminpluginfilter;
+ * @package TEC\Labs\Adminpluginfilter;
  */
 class Hooks extends \tad_DI52_ServiceProvider {
 

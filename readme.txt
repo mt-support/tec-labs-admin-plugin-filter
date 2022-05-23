@@ -1,11 +1,11 @@
-=== The Events Calendar Extension: admin-plugin-filter ===
+=== The Events Calendar Extension: Admin Plugin Filter ===
 Contributors: theeventscalendar
 Donate link: https://evnt.is/29
 Tags: events, calendar
 Requires at least: 4.9
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPL version 3 or any later version
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -13,9 +13,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
-
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and Markdown parsed.
+This adds some filtering options to the admin plugins table - to filter by TEC plugin or extension.
 
 == Installation ==
 

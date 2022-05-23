@@ -4,10 +4,10 @@
  *
  * @since 1.0.0
  *
- * @package Tribe\Extensions\Adminpluginfilter
+ * @package TEC\Labs\Adminpluginfilter
  */
 
-namespace Tribe\Extensions\Adminpluginfilter;
+namespace TEC\Labs\Adminpluginfilter;
 
 use Tribe__Abstract_Plugin_Register as Abstract_Plugin_Register;
 
@@ -16,7 +16,7 @@ use Tribe__Abstract_Plugin_Register as Abstract_Plugin_Register;
  *
  * @since 1.0.0
  *
- * @package Tribe\Extensions\Adminpluginfilter
+ * @package TEC\Labs\Adminpluginfilter
  *
  * @see Tribe__Abstract_Plugin_Register For the plugin dependency manifest registration.
  */

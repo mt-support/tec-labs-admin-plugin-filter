@@ -3,8 +3,8 @@
  * Plugin Name:       The Events Calendar Extension: Admin Plugin Filter
  * Plugin URI:
  * GitHub Plugin URI: https://github.com/mt-support/tec-labs-admin-plugin-filter
- * Description:
- * Version:           1.0.0
+ * Description:       Allows filtering the admin plugin view by TEC plugins/extensions.
+ * Version:           1.1.0
  * Author:            The Events Calendar
  * Author URI:        https://evnt.is/1971
  * License:           GPL version 3 or any later version
@@ -29,14 +29,14 @@
  *
  * @var string Base file that loaded the plugin.
  */
-define( 'TRIBE_EXTENSION_ADMIN_PLUGIN_FILTER_FILE', __FILE__ );
+define( 'TEC_LABS_EXTENSION_ADMIN_PLUGIN_FILTER_FILE', __FILE__ );
 
 /**
  * Register and load the service provider for loading the extension.
  *
  * @since 1.0.0
  */
-function tribe_extension_admin_plugin_filter() {
+function tec_labs_extension_admin_plugin_filter() {
 	// When we don't have autoloader from common we bail.
 	if ( ! class_exists( 'Tribe__Autoloader' ) ) {
 		return;
@@ -44,13 +44,13 @@ function tribe_extension_admin_plugin_filter() {
 
 	// Register the namespace so we can the plugin on the service provider registration.
 	Tribe__Autoloader::instance()->register_prefix(
-		'\\Tribe\\Extensions\\Adminpluginfilter\\',
+		'\\TEC\\Labs\\Adminpluginfilter\\',
 		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tec',
 		'admin-plugin-filter'
 	);
 
 	// Deactivates the plugin in case of the main class didn't autoload.
-	if ( ! class_exists( '\Tribe\Extensions\Adminpluginfilter\Plugin' ) ) {
+	if ( ! class_exists( '\TEC\Labs\Adminpluginfilter\Plugin' ) ) {
 		tribe_transient_notice(
 			'admin-plugin-filter',
 			'<p>' . esc_html__( 'Couldn\'t properly load "The Events Calendar Extension: admin-plugin-filter" the extension was deactivated.', 'tec-labs-admin-plugin-filter' ) . '</p>',
@@ -67,8 +67,8 @@ function tribe_extension_admin_plugin_filter() {
 		return;
 	}
 
-	tribe_register_provider( '\Tribe\Extensions\Adminpluginfilter\Plugin' );
+	tribe_register_provider( '\TEC\Labs\Adminpluginfilter\Plugin' );
 }
 
 // Loads after common is already properly loaded.
-add_action( 'tribe_common_loaded', 'tribe_extension_admin_plugin_filter' );
+add_action( 'tribe_common_loaded', 'tec_labs_extension_admin_plugin_filter' );

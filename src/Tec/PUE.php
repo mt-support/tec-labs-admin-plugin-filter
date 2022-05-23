@@ -4,10 +4,10 @@
  *
  * @since 1.0.0
  *
- * @package Tribe\Extensions\Adminpluginfilter;
+ * @package TEC\Labs\Adminpluginfilter;
  */
 
-namespace Tribe\Extensions\Adminpluginfilter;
+namespace TEC\Labs\Adminpluginfilter;
 
 use Tribe__PUE__Checker;
 
@@ -16,7 +16,7 @@ use Tribe__PUE__Checker;
  *
  * @since 1.0.0
  *
- * @package Tribe\Extensions\Adminpluginfilter;
+ * @package TEC\Labs\Adminpluginfilter;
  */
 class PUE extends \tad_DI52_ServiceProvider {
 

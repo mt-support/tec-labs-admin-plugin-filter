@@ -21,6 +21,7 @@
 
 namespace Tribe\Extensions\Adminpluginfilter;
 
+use TEC\Common\Contracts\Service_Provider;
 use Tribe__Main as Common;
 
 /**
@@ -30,7 +31,7 @@ use Tribe__Main as Common;
  *
  * @package Tribe\Extensions\Adminpluginfilter;
  */
-class Hooks extends \tad_DI52_ServiceProvider {
+class Hooks extends Service_Provider {
 
 	/**
 	 * List of author to filter by.
